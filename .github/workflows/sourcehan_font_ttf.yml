@@ -38,11 +38,11 @@ jobs:
           # 解压
           unzip 14_SourceHanSerifCN.zip
           # 转换
-          otf2ttf OTF/SubsetOTF/CN/*.otf
+          otf2ttf /SubsetOTF/CN/*.otf
           # 获取版本
           version="$(curl --silent "https://api.github.com/repos/adobe-fonts/source-han-serif/releases/latest" | grep -Po '"tag_name": "\K.*?(?=")')"
           mkdir font
-          mv OTF/SubsetOTF/CN/*.ttf font
+          mv /SubsetOTF/CN/*.ttf font
           # 压缩
           cd font
           zip -9 -r -UN=UTF8 ../SourceHanSerifCN_TTF_$version.zip *.ttf
@@ -55,11 +55,11 @@ jobs:
           # 解压
           unzip SourceHanSansCN.zip
           # 转换
-          otf2ttf OTF/SubsetOTF/CN/*.otf
+          otf2ttf /SubsetOTF/CN/*.otf
           # 获取版本
           version="$(curl --silent "https://api.github.com/repos/adobe-fonts/source-han-sans/releases/latest" | grep -Po '"tag_name": "\K.*?(?=")')"
           mkdir font
-          mv OTF/SubsetOTF/CN/*.ttf font
+          mv /SubsetOTF/CN/*.ttf font
           # 压缩
           cd font
           zip -9 -r -UN=UTF8 ../SourceHanSansCN_TTF_$version.zip *.ttf
